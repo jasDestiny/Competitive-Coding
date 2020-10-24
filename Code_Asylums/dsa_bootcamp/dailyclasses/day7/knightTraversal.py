@@ -1,5 +1,5 @@
 def withinBoard(x,y):
-    if x<8 and y<8:
+    if x<8 and y<8 and x>-1 and x>-1:
         return True
     else:
         return False
