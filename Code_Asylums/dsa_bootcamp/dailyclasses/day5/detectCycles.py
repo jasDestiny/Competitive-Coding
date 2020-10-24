@@ -10,14 +10,14 @@ def detectCycle(adjacencyMatrix, source):
             visited[i]=True
             for k,j in enumerate(adjacencyMatrix[i]):
                 if j==1 and k!=i:
-                    children.append(i)
+                    children.append(k)
         parents=children.copy()
     return "NO CYCLES"
                     
 
 adjacencyMatrix=[
-    [0, 1, 0],
+    [0, 1, 1],
     [1, 0, 1],
-    [1, 0, 0]
+    [0, 1, 0]
 ]
-print(detectCycle(adjacencyMatrix, 2))
+print(detectCycle(adjacencyMatrix, 0))
