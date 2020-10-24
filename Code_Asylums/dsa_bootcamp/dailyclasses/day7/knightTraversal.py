@@ -5,8 +5,8 @@ def withinBoard(x,y):
         return False
 
 def knightTraversal(kx, ky, dx, dy):
-    x=[3,3,-3,-3,1,-1,1,-1]
-    y=[1,-1,1,-1,3,-3,-3,3]
+    x=[2,2,-2,-2,1,-1,1,-1]
+    y=[1,-1,1,-1,2,-2,-2,2]
     steps=1
     if kx==dx and ky==dy:
         return steps
