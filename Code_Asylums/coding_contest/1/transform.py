@@ -14,21 +14,13 @@ def noOfSteps(source, target, transformations):
             for j in hashMap[i]:
                 if not visited[j]:
                     children.append(j)
+                    visited[j]=True
                 if j==target:
                     found=True
-                    break
-            if found:
-                break
-        if found:
-            break
-        else:
-            parents=children.copy()
-            children=[]
-    if found:
-        print("Found in ",steps,"steps")
-    else:
-        print("unable to find")
-
+                    return steps
+        parents=children.copy()
+        children=[]
+    return -1
 
 def createMap(hashMap, transformations):
     for i in transformations:
@@ -43,4 +35,4 @@ def diff(a, b):
             diff+=1
     return diff
 
-noOfSteps("mat", "bob", ["cat", "bat","cab","cob","dog"])
+print(noOfSteps("mad", "bob", ["mat", "cat", "bat","cab","cob","dog"]))
