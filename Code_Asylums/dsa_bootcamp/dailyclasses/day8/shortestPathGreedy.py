@@ -1,12 +1,17 @@
+
 def shortestPath(map, source, target):
-    greedy=[float("inf") for i in range(len(map))]
-    visited=[False for i in range(len(map))]
-    greedy[source]=0
-    visited[source]=True
+    greedy, visited=[float("inf") for i in range(len(map))], [False for i in range(len(map))]
+    greedy[source],visited[source] =0, True
     parent=[source]
     current=parent
-    while parent:
-        children=[]
-        for i in parent:
-            for j,k in enumerate(map[i]):
-                if k!=float("-inf"):
+    for i in range(len(map)):
+        nextChildDist=float("-inf")
+        nextChild=None
+        for j,k in enumerate(map[current]):
+            greedy[j]=min(greedy[j], greedy[current]+k)
+            if nextChildDist>greedy[j]:
+                nextChildDist=greedy[j]
+                nextChild=j
+        current=nextChild
+    return greedy[target]
+        
